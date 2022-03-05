@@ -1,7 +1,6 @@
 package prom
 
 import (
-	"fmt"
 	"io"
 	"time"
 
@@ -47,8 +46,6 @@ var metrics *prom_client.MetricFamily = &prom_client.MetricFamily{
 		)
 
 		for !iterateDate.After(finalDate) {
-			fmt.Println(iterateDate.Format(time.RFC1123))
-			time.Sleep(time.Millisecond)
 			data = append(data, &prom_client.Metric{
 				Gauge: &prom_client.Gauge{
 					Value: sF64(1),
